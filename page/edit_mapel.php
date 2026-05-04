@@ -1,3 +1,8 @@
+<?php
+require_once "config/koneksi.php";
+
+/** @var mysqli $koneksi */
+?>
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -10,14 +15,14 @@
 
 <?php
 $kd = $_GET['kd'];
-$edit = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM mapel WHERE kd_mapel='$kd' "));
+$edit = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM tabel_mapel WHERE Kd_mapel='$kd' "));
 
 if(isset($_POST['tambah'])){
     $kd_mapel = $_POST['Kd_mapel'];
-    $nm_mapel = $_POST['nm_mapel'];
+    $nm_mapel = $_POST['Nm_mapel'];
     $kkm = $_POST['kkm'];
 
-    $insert = mysqli_query($koneksi, "UPDATE mapel SET nm_mapel='$nm_mapel', kkm='$kkm' WHERE Kd_mapel='$kd_mapel' ");
+    $insert = mysqli_query($koneksi, "UPDATE tabel_mapel SET Nm_mapel='$nm_mapel', Kkm='$kkm' WHERE Kd_mapel='$kd_mapel' ");
     
     if ($insert) {
         echo '<div class="alert alert-info-dismissible">
@@ -46,14 +51,14 @@ if(isset($_POST['tambah'])){
                                 class="form-control" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="nm_mapel">Nama Mapel</label>
-                            <input type="text" name="nm_mapel" value="<?= $edit['nm_mapel']; ?>" 
-                                id="nm_mapel" placeholder="Nama mapel" class="form-control">
+                            <label for="Nm_mapel">Nama Mapel</label>
+                            <input type="text" name="Nm_mapel" value="<?= $edit['Nm_mapel']; ?>" 
+                                id="Nm_mapel" placeholder="Nama mapel" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="kkm">KKM</label>
-                            <input type="text" name="kkm" value="<?= $edit['kkm']; ?>" 
-                                id="kkm" placeholder="KKM" class="form-control">
+                            <label for="Kkm">KKM</label>
+                            <input type="text" name="kkm" value="<?= $edit['Kkm']; ?>" 
+                                id="Kkm" placeholder="Kkm" class="form-control">
                         </div>
                         
                         <div class="card-footer">
