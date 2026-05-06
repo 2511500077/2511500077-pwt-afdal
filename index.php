@@ -142,6 +142,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
+              <li class="nav-item">
+                <a href="index.php?page=skripsi2511500077" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Skripsi</p>
+                </a>
+                </a>
               </li>
             </ul>
           </li>
