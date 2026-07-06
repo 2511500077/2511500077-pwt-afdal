@@ -57,7 +57,7 @@ if(isset($_GET['action'])) {
                 </thead>
                 <?php
                 $no = 0;
-                $query = mysqli_query($koneksi, "SELECT * FROM tabel_siswa");
+                $query = mysqli_query($koneksi, " SELECT * FROM tabel_siswa JOIN tabel_kelas ON tabel_siswa.Id_kelas = tabel_kelas.Id_kelas ");
                 while ($result = mysqli_fetch_array($query)) {
                     $no++
                 ?>
@@ -68,7 +68,7 @@ if(isset($_GET['action'])) {
                         <td><?= $result['Nm_siswa']; ?></td>
                         <td><?= $result['Jenkel']; ?></td>
                         <td><?= $result['Hp']; ?></td>
-                        <td><?= $result['Id_kelas']; ?></td>
+                        <td><?= $result['Nm_kelas']; ?></td>
                         <td>
                             <a href="index.php?page=siswa&action=hapus&kd=<?= $result['Nis'] ?>" title="">
                                 <span class="badge badge-danger">Hapus</span></a>
